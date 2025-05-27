@@ -29,6 +29,7 @@ def get_data():
             wav_name = [name for name in inside_data if name.endswith(".wav")][0]
 
             data.append({
+                "additional_info": f"Audio {fld}",
                 "original_audio": original_audio,
                 "image": os.path.join(fld_inside, image_name),
                 "synthesized_audio": os.path.join(fld_inside, wav_name)
@@ -40,17 +41,27 @@ def get_data():
 if __name__ == "__main__":
     set_page()
     rows_data = get_data()
-    print(rows_data)
+
+    # Styling block for vertical centering
+    center_style = """
+        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+            {content}
+        </div>
+    """
 
     st.title("Conversion samples")
 
     for i, row in enumerate(rows_data):
-        st.markdown(f"### Sample {i + 1}")
+        additional_info = row['additional_info']
+        st.markdown(f"### Sample {i + 1} ({additional_info})")
         col1, col2, col3 = st.columns(3)
         
         with col1:
             st.markdown("**Original Audio**")
-            st.audio(row["original_audio"])
+            # st.audio(row["original_audio"])
+            st.markdown(center_style.format(
+                content=f"<audio controls src='{row['original_audio']}'></audio>"
+            ), unsafe_allow_html=True)
         
         with col2:
             st.markdown("**Reference Image**")
@@ -58,4 +69,7 @@ if __name__ == "__main__":
         
         with col3:
             st.markdown("**Synthesized Audio**")
-            st.audio(row["synthesized_audio"])
+            # st.audio(row["synthesized_audio"])
+            st.markdown(center_style.format(
+                content=f"<audio controls src='{row['synthesized_audio']}'></audio>"
+            ), unsafe_allow_html=True)
