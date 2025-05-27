@@ -42,13 +42,6 @@ if __name__ == "__main__":
     set_page()
     rows_data = get_data()
 
-    # Styling block for vertical centering
-    center_style = """
-        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-            {content}
-        </div>
-    """
-
     st.title("Conversion samples")
 
     for i, row in enumerate(rows_data):
@@ -58,10 +51,7 @@ if __name__ == "__main__":
         
         with col1:
             st.markdown("**Original Audio**")
-            # st.audio(row["original_audio"])
-            st.markdown(center_style.format(
-                content=f"<audio controls src='{row['original_audio']}'></audio>"
-            ), unsafe_allow_html=True)
+            st.audio(row["original_audio"])
         
         with col2:
             st.markdown("**Reference Image**")
@@ -69,7 +59,4 @@ if __name__ == "__main__":
         
         with col3:
             st.markdown("**Synthesized Audio**")
-            # st.audio(row["synthesized_audio"])
-            st.markdown(center_style.format(
-                content=f"<audio controls src='{row['synthesized_audio']}'></audio>"
-            ), unsafe_allow_html=True)
+            st.audio(row["synthesized_audio"])
