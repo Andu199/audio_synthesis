@@ -54,7 +54,7 @@ if __name__ == "__main__":
         
         with col2:
             st.markdown("**Reference Image**")
-            st.image(row["image"], use_column_width=True)
+            st.image(row["image"], use_container_width=True)
         
         with col3:
             st.markdown("**Synthesized Audio**")
