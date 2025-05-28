@@ -40,7 +40,17 @@ def get_data():
 
 if __name__ == "__main__":
     set_page()
-    rows_data = get_data()
+    rows_data = []
+    for i in range(1, 6):
+        rows_data.append(
+            {
+                "additional_info": f"Audio Avram Iancu",
+                "original_audio": "/root/audio_synthesis/samples/avram/avram.wav",
+                "image": f"/root/audio_synthesis/samples/avram/avram{i}/avram{i}.jpg",
+                "synthesized_audio": f"/root/audio_synthesis/samples/avram/avram{i}/synth_avram{i}.wav"
+            },
+        )
+    rows_data.extend(get_data())
 
     st.title("Conversion samples")
 
