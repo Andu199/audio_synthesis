@@ -80,5 +80,8 @@ if __name__ == "__main__":
             st.image(row["image"], use_container_width=True)
         
         with col3:
-            st.markdown("**Synthesized Audio**")
+            if i < 10 and i % 2 == 1:
+                st.markdown("**Synthesized Audio (for cropped image)**")
+            else:
+                st.markdown("**Synthesized Audio**")
             st.audio(row["synthesized_audio"])
