@@ -50,6 +50,14 @@ if __name__ == "__main__":
                 "synthesized_audio": f"samples/avram/avram{i}/synth_avram{i}.wav"
             },
         )
+        rows_data.append(
+            {
+                "additional_info": f"Audio Avram Iancu",
+                "original_audio": "samples/avram/avram.wav",
+                "image": f"samples/avram_face_crop/avram{i}/face_crop_avram{i}.jpg",
+                "synthesized_audio": f"samples/avram_face_crop/avram{i}/synth_face_crop_avram{i}.wav"
+            },
+        )
     rows_data.extend(get_data())
 
     st.title("Conversion samples")
