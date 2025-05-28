@@ -54,7 +54,8 @@ if __name__ == "__main__":
             {
                 "additional_info": f"Audio Avram Iancu",
                 "original_audio": "samples/avram/avram.wav",
-                "image": f"samples/avram_face_crop/avram{i}/face_crop_avram{i}.jpg",
+                # "image": f"samples/avram_face_crop/avram{i}/face_crop_avram{i}.jpg",
+                "image": f"samples/avram/avram{i}/avram{i}.jpg",
                 "synthesized_audio": f"samples/avram_face_crop/avram{i}/synth_face_crop_avram{i}.wav"
             },
         )
