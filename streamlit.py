@@ -42,14 +42,14 @@ if __name__ == "__main__":
     set_page()
     rows_data = []
     for i in range(5, 0, -1):
-        rows_data.append(
-            {
-                "additional_info": f"Audio Avram Iancu",
-                "original_audio": "samples/avram/avram.wav",
-                "image": f"samples/avram/avram{i}/avram{i}.jpg",
-                "synthesized_audio": f"samples/avram/avram{i}/synth_avram{i}.wav"
-            },
-        )
+        # rows_data.append(
+        #     {
+        #         "additional_info": f"Audio Avram Iancu",
+        #         "original_audio": "samples/avram/avram.wav",
+        #         "image": f"samples/avram/avram{i}/avram{i}.jpg",
+        #         "synthesized_audio": f"samples/avram/avram{i}/synth_avram{i}.wav"
+        #     },
+        # )
         rows_data.append(
             {
                 "additional_info": f"Audio Avram Iancu",
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            if i < 10:
+            if i < 5:
                 st.markdown("**Original Audio (synthetized with ElevenLabs from text)**")
             else:
                 st.markdown("**Original Audio**")
@@ -80,8 +80,5 @@ if __name__ == "__main__":
             st.image(row["image"], use_container_width=True)
         
         with col3:
-            if i < 10 and i % 2 == 1:
-                st.markdown("**Synthesized Audio (for cropped image)**")
-            else:
-                st.markdown("**Synthesized Audio**")
+            st.markdown("**Synthesized Audio**")
             st.audio(row["synthesized_audio"])
