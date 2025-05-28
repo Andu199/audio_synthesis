@@ -41,7 +41,7 @@ def get_data():
 if __name__ == "__main__":
     set_page()
     rows_data = []
-    for i in range(1, 6):
+    for i in range(5, 0, -1):
         rows_data.append(
             {
                 "additional_info": f"Audio Avram Iancu",
@@ -68,7 +68,10 @@ if __name__ == "__main__":
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.markdown("**Original Audio**")
+            if i < 10:
+                st.markdown("**Original Audio (synthetized with ElevenLabs from text)**")
+            else:
+                st.markdown("**Original Audio**")
             st.audio(row["original_audio"])
         
         with col2:
