@@ -77,14 +77,14 @@ if __name__ == "__main__":
 
     heygen = "https://www.heygen.com/"
     with col1:
-        st.markdown("**Video generated using [HeyGen] (free demo version; predefined voice restriction) (%s))**" % heygen)
+        st.markdown("**Video generated using [HeyGen](%s) (free demo version; predefined voice restriction))**" % heygen)
 
         video_file = open("samples/videos/Avatar IV Video.mp4", "rb")
         video_bytes = video_file.read()
         st.video(video_bytes)
 
     with col2:
-        st.markdown("**Video generated using [HeyGen] (free demo version; predefined voice restriction) (%s))**" % heygen)
+        st.markdown("**Video generated using [HeyGen](%s) (free demo version; predefined voice restriction))**" % heygen)
 
         video_file = open("samples/videos/Avatar IV Video (2).mp4", "rb")
         video_bytes = video_file.read()
