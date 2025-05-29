@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
         st.markdown("**Not smoothed (generated using [SadTalker](%s))**" % sad_talker)
 
-        video_file = open("samples/videos/avram5##synth_face_crop_avram3.mp4", "rb")
+        video_file = open("samples/videos/avram3##synth_face_crop_avram3.mp4", "rb")
         video_bytes = video_file.read()
         st.video(video_bytes)
 
