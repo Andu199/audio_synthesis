@@ -6,7 +6,7 @@ import streamlit as st
 def set_page():
     st.set_page_config(layout="wide")
     st.write("""
-        ## Demo for Face-based voice conversion with F0 estimation
+        # Demo Audio and Video Synthesize
     """)
 
 
@@ -40,6 +40,60 @@ def get_data():
 
 if __name__ == "__main__":
     set_page()
+
+    st.title("Animations")
+    col1, col2 = st.columns(2)
+
+    sad_talker = "https://github.com/OpenTalker/SadTalker?tab=readme-ov-file"
+    with col1:
+        st.markdown("**Not smoothed (generated using [SadTalker](%s))**" % sad_talker)
+
+        video_file = open("samples/videos/avram5##synth_face_crop_avram5.mp4", "rb")
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+        st.markdown("**Not smoothed (generated using [SadTalker](%s))**" % sad_talker)
+
+        video_file = open("samples/videos/avram5##synth_face_crop_avram3.mp4", "rb")
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+    with col2:
+        st.markdown("**Smoothed (generated using [SadTalker](%s))**" % sad_talker)
+
+        video_file = open("samples/videos/2025_05_29_11.12.19.mp4", "rb")
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+        st.markdown("**Smoothed (generated using [SadTalker](%s))**" % sad_talker)
+
+        video_file = open("samples/videos/2025_05_29_14.32.47.mp4", "rb")
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+    st.markdown("---")
+
+    col1, col2 = st.columns(2)
+
+    heygen = "https://www.heygen.com/"
+    with col1:
+        st.markdown("**Video generated using [HeyGen] (free demo version; predefined voice restriction) (%s))**" % heygen)
+
+        video_file = open("samples/videos/Avatar IV Video.mp4", "rb")
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+    with col2:
+        st.markdown("**Video generated using [HeyGen] (free demo version; predefined voice restriction) (%s))**" % heygen)
+
+        video_file = open("samples/videos/Avatar IV Video (2).mp4", "rb")
+        video_bytes = video_file.read()
+        st.video(video_bytes)
+
+    st.markdown("---")
+
+    st.title("Conversion samples")
+
     rows_data = []
     for i in range(5, 0, -1):
         # rows_data.append(
@@ -61,7 +115,6 @@ if __name__ == "__main__":
         )
     rows_data.extend(get_data())
 
-    st.title("Conversion samples")
 
     for i, row in enumerate(rows_data):
         additional_info = row['additional_info']
